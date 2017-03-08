@@ -1,2 +1,2 @@
 # JavaScript Games
-JavaScript games that utilizes HTML5 canvas.
+JavaScript games that utilize HTML5 canvas.
