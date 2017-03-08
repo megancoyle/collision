@@ -1,2 +1,2 @@
-# collision
-JavaScript game that utilizes HTML5 canvas.
+# JavaScript Games
+JavaScript games that utilizes HTML5 canvas.
