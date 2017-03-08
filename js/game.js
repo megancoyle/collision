@@ -1,5 +1,8 @@
 var myGamePiece;
 var myObstacles = [];
+var boardWidth = 480;
+var boardHeight = 270
+var hitBoardEdge;
 
 function startGame() {
     myGamePiece = new component(30, 30, "#0099cc", 10, 120);
@@ -9,8 +12,8 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
+        this.canvas.width = boardWidth;
+        this.canvas.height = boardHeight;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
@@ -84,6 +87,10 @@ function updateGameArea() {
     }
     myGamePiece.newPos();
     myGamePiece.update();
+    // stop game if piece hits corners of the canvas
+    if (myGamePiece.x >= (boardWidth - 30) || myGamePiece.x <= 0 || myGamePiece.y >= (boardHeight - 30) || myGamePiece.y <= 0) {
+      myGameArea.stop();
+    }
 }
 
 function everyinterval(n) {
